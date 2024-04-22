@@ -1,0 +1,67 @@
+/*
+1D978D
+222222
+E6E6E6
+*/
+
+
+activityBarBadge.background {color:                         #1D978D}
+editor.background {color:                                   #222222}
+editor.foreground {color:                                   #E6E6E6}
+
+editor.inactiveSelectionBackground {color:                  #3a3d41}
+editor.selectionHighlightBackground {color:                 #add6ff26}
+editorIndentGuide.activeBackground {color:                  #707070}
+editorIndentGuide.background {color:                        #404040}
+input.placeholderForeground {color:                         #7A7A7A}
+
+list.dropBackground {color:                                 #383b3d}
+list.activeSelectionBackground {color:                      #222222}
+list.focusBackground {color:                                #0077B5}
+
+menu.background {color:                                     #252526}
+menu.foreground {color:                                     #E6E6E6}
+
+settings.numberInputBackground {color:                      #292929}
+settings.textInputBackground {color:                        #292929}
+sideBarTitle.foreground {color:                             #E6E6E6}
+statusBar.background {color:                                #222222}
+statusBar.noFolderBackground {color:                        #141414}
+statusBar.debuggingBackground {color:                       #1D978D}
+list.hoverBackground {color:                                #222222}
+
+gitDecoration.modifiedResourceForeground {color:            #ECB22E}
+gitDecoration.deletedResourceForeground {color:             #FFF}
+gitDecoration.untrackedResourceForeground {color:           #ECB22E}
+gitDecoration.ignoredResourceForeground {color:             #877583}
+gitDecoration.addedResourceForeground {color:               #ECB22E}
+gitDecoration.conflictingResourceForeground {color:         #FFF}
+
+editor.lineHighlightBorder {color:                          #141414}
+editor.lineHighlightBackground {color:                      #141414}
+editorSuggestWidget.selectedBackground {color:              #0077B5}
+sideBarSectionHeader.background {color:                     #222222}
+activityBar.background {color:                              #222222}
+
+button.background {color:                                   #0077B5}
+button.foreground {color:                                   #FFF}
+button.hoverBackground {color:                              #005076}
+
+extensionButton.prominentBackground {color:                 #0077B5}
+extensionButton.prominentForeground {color:                 #FFF}
+extensionButton.prominentHoverBackground {color:            #005076}
+
+debugExceptionWidget.background {color:                     #141414}
+debugExceptionWidget.border {color:                         #FFF}
+debugToolBar.background {color:                             #141414}
+
+titleBar.activeBackground {color:                           #222222}
+titleBar.activeForeground {color:                           #E6E6E6}
+titleBar.inactiveBackground {color:                         #222222}
+titleBar.inactiveForeground {color:                         #7A7A7A}
+
+focusBorder {color:                                         #0077B5}
+textLink.activeForeground {color:                           #0077B5}
+textLink.foreground {color:                                 #0077B5}
+editorLink.activeForeground {color:                         #0077B5}
+notificationLink.foreground {color:                         #0077B5}
