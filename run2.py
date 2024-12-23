@@ -74,7 +74,7 @@ def Cube():
     gl.glEnd()
 
 def loadImage():
-    img = pygame.image.load("tb.jpg")
+    img = pygame.image.load("firefly.jpg")
     textureData = pygame.image.tostring(img, "RGB", 1)
     width = img.get_width()
     height = img.get_height()

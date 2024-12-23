@@ -19,7 +19,8 @@ def transparent_window(window, image_path):
     label.pack()
 
     # Make the window background transparent
-    window.attributes('-transparentcolor', 'white')
+    # window.attributes('-transparentcolor', 'white')
+    window.attributes('-alpha', 0.9)
 
     # Using Windows API to enable transparency (layered window)
     # hwnd = ctypes.windll.user32.GetParent(window.winfo_id())

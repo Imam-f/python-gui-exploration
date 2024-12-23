@@ -45,7 +45,7 @@ def main():
         show_test_window()
         #imgui.show_test_window()
 
-        gl.glClearColor(1., 1., 1., 0)
+        gl.glClearColor(0.2, 0.2, 0.2, 0)
         gl.glClear(gl.GL_COLOR_BUFFER_BIT)
 
         imgui.render()

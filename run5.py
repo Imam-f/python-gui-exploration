@@ -4,8 +4,8 @@ from OpenGL.GL import *
 import ctypes
 import ctypes.wintypes as w
 
-user32 = ctypes.WinDLL('user32', use_last_error=True)
-dwmapi = ctypes.WinDLL('dwmapi', use_last_error=True)
+# user32 = ctypes.WinDLL('user32', use_last_error=True)
+# dwmapi = ctypes.WinDLL('dwmapi', use_last_error=True)
 
 # Constants for Windows API
 WM_SYSCOMMAND = 0x0112
@@ -26,30 +26,30 @@ RDW_ERASE = 0x0004
 LRESULT = LONG_PTR = w.LPARAM
 
 # Import the function from user32.dll
-SetWindowLongPtr = user32.SetWindowLongPtrA
-GetWindowLongPtr = user32.GetWindowLongPtrA
-CallWindowProc = user32.CallWindowProcA
-GetForegroundWindow = user32.GetForegroundWindow
-RedrawWindow = user32.RedrawWindow
+# SetWindowLongPtr = user32.SetWindowLongPtrA
+# GetWindowLongPtr = user32.GetWindowLongPtrA
+# CallWindowProc = user32.CallWindowProcA
+# GetForegroundWindow = user32.GetForegroundWindow
+# RedrawWindow = user32.RedrawWindow
 
 # Define the custom window procedure callback type
 # WNDPROC = ctypes.WINFUNCTYPE(ctypes.c_long, ctypes.c_int, ctypes.wintypes.UINT, ctypes.wintypes.WPARAM, ctypes.wintypes.LPARAM)
-WNDPROC = ctypes.WINFUNCTYPE(LRESULT, w.HWND, w.UINT, w.WPARAM, w.LPARAM)
+# WNDPROC = ctypes.WINFUNCTYPE(LRESULT, w.HWND, w.UINT, w.WPARAM, w.LPARAM)
 
-user32.GetWindowLongPtrA.argtypes = w.HWND, ctypes.c_int
-user32.GetWindowLongPtrA.restype = LONG_PTR
-user32.GetForegroundWindow.argtypes = ()
-user32.GetForegroundWindow.restype = w.HWND
-user32.RedrawWindow.argtypes = w.HWND, w.LPRECT, w.HRGN, w.UINT
-user32.RedrawWindow.restype = w.BOOL
-user32.CallWindowProcA.argtypes = WNDPROC, w.HWND, w.UINT, w.WPARAM, w.LPARAM
-user32.CallWindowProcA.restype = LRESULT
-user32.SetWindowLongPtrA.argtypes = w.HWND, ctypes.c_int, LONG_PTR
-user32.SetWindowLongPtrA.restype = LONG_PTR
+# user32.GetWindowLongPtrA.argtypes = w.HWND, ctypes.c_int
+# user32.GetWindowLongPtrA.restype = LONG_PTR
+# user32.GetForegroundWindow.argtypes = ()
+# user32.GetForegroundWindow.restype = w.HWND
+# user32.RedrawWindow.argtypes = w.HWND, w.LPRECT, w.HRGN, w.UINT
+# user32.RedrawWindow.restype = w.BOOL
+# user32.CallWindowProcA.argtypes = WNDPROC, w.HWND, w.UINT, w.WPARAM, w.LPARAM
+# user32.CallWindowProcA.restype = LRESULT
+# user32.SetWindowLongPtrA.argtypes = w.HWND, ctypes.c_int, LONG_PTR
+# user32.SetWindowLongPtrA.restype = LONG_PTR
 
-SetWindowCompositionAttribute = user32.SetWindowCompositionAttribute
-# SetWindowAttribute = user32.SetWindowAttribute
-DwmSetWindowAttribute = dwmapi.DwmSetWindowAttribute
+# SetWindowCompositionAttribute = user32.SetWindowCompositionAttribute
+# # SetWindowAttribute = user32.SetWindowAttribute
+# DwmSetWindowAttribute = dwmapi.DwmSetWindowAttribute
 
 
 def create_shader(shader_type, source):
@@ -63,8 +63,8 @@ def drag_window():
     Signal Windows to initiate the window drag action.
     """
     hwnd = pygame.display.get_wm_info()["window"]
-    user32.ReleaseCapture()
-    user32.SendMessageW(hwnd, WM_SYSCOMMAND, SC_MOVE | HTCAPTION, 0)
+    # user32.ReleaseCapture()
+    # user32.SendMessageW(hwnd, WM_SYSCOMMAND, SC_MOVE | HTCAPTION, 0)
 
 def main():
     pygame.init()
@@ -75,12 +75,12 @@ def main():
     hwnd = pygame.display.get_wm_info()["window"]
 
     # Get the current window style
-    current_style = user32.GetWindowLongW(hwnd, GWL_STYLE)
+    # current_style = user32.GetWindowLongW(hwnd, GWL_STYLE)
 
     # Modify the window style to be borderless but still resizable
     # This removes the title bar and edges but allows resizing
-    new_style = WS_POPUP | WS_VISIBLE | WS_THICKFRAME
-    user32.SetWindowLongW(hwnd, GWL_STYLE, new_style)
+    # new_style = WS_POPUP | WS_VISIBLE | WS_THICKFRAME
+    # user32.SetWindowLongW(hwnd, GWL_STYLE, new_style)
 
     glViewport(0, 0, display[0], display[1])
     glEnable(GL_BLEND)
@@ -137,10 +137,10 @@ def main():
 
     # Make the window transparent
     hwnd = pygame.display.get_wm_info()["window"]
-    ctypes.windll.user32.SetWindowLongPtrW(hwnd, -20, ctypes.windll.user32.GetWindowLongPtrW(hwnd, -20) | 0x80000)
+    # ctypes.windll.user32.SetWindowLongPtrW(hwnd, -20, ctypes.windll.user32.GetWindowLongPtrW(hwnd, -20) | 0x80000)
     # ctypes.windll.user32.SetLayeredWindowAttributes(hwnd, 0, 230, 0x3)  # Making black color transparent
     # ctypes.windll.user32.SetLayeredWindowAttributes(hwnd, 0xFFFFFF, 240, 0x1)  # Making black color transparent
-    ctypes.windll.user32.SetLayeredWindowAttributes(hwnd, 0, 0, 0x1)  # Making black color transparent
+    # ctypes.windll.user32.SetLayeredWindowAttributes(hwnd, 0, 0, 0x1)  # Making black color transparent
     # ctypes.windll.user32.SetLayeredWindowAttributes(hwnd, 0, 220, 0x2)  # Making black color transparent
 
     # ctypes.windll.user32.WINDOWCOMPOSITIONATTRIBDATA
@@ -164,7 +164,7 @@ def main():
     # policy = ACCENTPOLICY(2, 0xFFFFFF, 0x0000FF, 1)
     policy = ACCENTPOLICY(3, 0, 0, 0)
     print(ctypes.sizeof(ACCENTPOLICY))
-    data = WINCOMPATTRIBDATA(19, ctypes.cast(ctypes.byref(policy), ctypes.c_void_p), ctypes.sizeof(ACCENTPOLICY))
+    # data = WINCOMPATTRIBDATA(19, ctypes.cast(ctypes.byref(policy), ctypes.c_void_p), ctypes.sizeof(ACCENTPOLICY))
     # SetWindowCompositionAttribute(hwnd, ctypes.byref(data))
     
     # Rounded
@@ -174,11 +174,11 @@ def main():
 
     # Enable mica
     preference_2 = ctypes.c_int(1)
-    DwmSetWindowAttribute(hwnd, 1029, ctypes.byref(preference_2), 4)
+    # DwmSetWindowAttribute(hwnd, 1029, ctypes.byref(preference_2), 4)
 
     # Dark mode
     preference_3 = ctypes.c_int(1)
-    DwmSetWindowAttribute(hwnd, 20, ctypes.byref(preference_3), 4)
+    # DwmSetWindowAttribute(hwnd, 20, ctypes.byref(preference_3), 4)
 
     # Backdrop
     #         /// no backdrop
@@ -191,7 +191,7 @@ def main():
     #         DWMSBT_TABBEDWINDOW = 4
     
     preference_3 = ctypes.c_int(2)
-    DwmSetWindowAttribute(hwnd, 38, ctypes.byref(preference_3), 4)
+    # DwmSetWindowAttribute(hwnd, 38, ctypes.byref(preference_3), 4)
 
     def draw_game() -> None:
         # print("B")
@@ -205,8 +205,8 @@ def main():
         glDrawArrays(GL_TRIANGLES, 0, 3)
         pygame.display.flip()
 
-    hWnd = GetForegroundWindow()
-    originalWndProcPtr = GetWindowLongPtr(hWnd, GWL_WNDPROC)
+    # hWnd = GetForegroundWindow()
+    # originalWndProcPtr = GetWindowLongPtr(hWnd, GWL_WNDPROC)
 
     def wndProc(hWnd, message, wParam, lParam):
         if message == WM_SIZE:
@@ -219,7 +219,7 @@ def main():
     # Wrap wndProc with WNDPROC type and store the original window procedure pointer
     print("a")
 
-    SetWindowLongPtr(hWnd, GWL_WNDPROC, ctypes.cast(WNDPROC(wndProc), ctypes.c_void_p).value)
+    # SetWindowLongPtr(hWnd, GWL_WNDPROC, ctypes.cast(WNDPROC(wndProc), ctypes.c_void_p).value)
     # SetWindowLongPtr(hWnd, GWL_WNDPROC, WNDP/ROC(wndProc))
     # originalWndProcPtr = SetWindowLongPtr(hwnd, GWL_WNDPROC, WNDPROC(lambda *args: wndProc(originalWndProcPtr, draw_game, *args)))
     print("b")

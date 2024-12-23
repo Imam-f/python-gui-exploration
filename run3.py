@@ -64,7 +64,7 @@ glClearColor(0.1, 0.1, 0.1, 0)
 
 # Load and set up texture
 texture = glGenTextures(1)
-image = pygame.image.load('seren2.png')
+image = pygame.image.load('firefly.jpg')
 # image = pygame.image.load('asta.jpg')
 # image = pygame.image.load('seren.png')
 img_data = pygame.image.tostring(image, 'RGB', 1)

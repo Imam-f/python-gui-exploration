@@ -18,25 +18,25 @@ WM_SYSCOMMAND = 0x0112
 SC_MOVE = 0xF010
 HTCAPTION = 0x0002
 
-user32 = ctypes.WinDLL('user32', use_last_error=True)
+# user32 = ctypes.WinDLL('user32', use_last_error=True)
 
-# Get the window handle (HWND)
-hwnd = pygame.display.get_wm_info()["window"]
+# # Get the window handle (HWND)
+# hwnd = pygame.display.get_wm_info()["window"]
 
-# Set window style to layered (to allow transparency)
-ctypes.windll.user32.SetWindowLongPtrW(hwnd, -20, ctypes.windll.user32.GetWindowLongPtrW(hwnd, -20) | 0x80000)
+# # Set window style to layered (to allow transparency)
+# ctypes.windll.user32.SetWindowLongPtrW(hwnd, -20, ctypes.windll.user32.GetWindowLongPtrW(hwnd, -20) | 0x80000)
 
-# Set the transparency of the window
-# The first parameter is the color to be transparent and the second one is the transparency level
-ctypes.windll.user32.SetLayeredWindowAttributes(hwnd, 0, 220, 0x2)  # 220 out of 255 for the transparency level
+# # Set the transparency of the window
+# # The first parameter is the color to be transparent and the second one is the transparency level
+# ctypes.windll.user32.SetLayeredWindowAttributes(hwnd, 0, 220, 0x2)  # 220 out of 255 for the transparency level
 
 def drag_window():
     """
     Signal Windows to initiate the window drag action.
     """
     hwnd = pygame.display.get_wm_info()["window"]
-    user32.ReleaseCapture()
-    user32.SendMessageW(hwnd, WM_SYSCOMMAND, SC_MOVE | HTCAPTION, 0)
+    # user32.ReleaseCapture()
+    # user32.SendMessageW(hwnd, WM_SYSCOMMAND, SC_MOVE | HTCAPTION, 0)
 
 # Create and compile the vertex shader
 vertex_shader_source = """
